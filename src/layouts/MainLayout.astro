@@ -1,13 +1,18 @@
+---
+import FontAwesomeHeader from '../components/FontAwesomeHeader.astro'
+const { title, fontAwesome } = Astro.props
+---
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>About - Nifty Digits - Simple, Quality Software</title>
+    <title>{title}</title>
     <link rel="stylesheet" href="css/main.css">
-    
-    
+    {fontAwesome ? <FontAwesomeHeader /> : null}
+
     <meta name="description" content="Python and Javscript Web App Development, Cardiff UK" />
 
     <!-- Twitter Card data -->
@@ -21,7 +26,6 @@
     <meta property="og:url" content="http://www.niftydigits.com/" />
     <meta property="og:image" content="http://niftydigits.com/img/headshot.jpg" />
     <meta property="og:description" content="Simple, Quality Software" />
-    <script async defer data-domain="niftydigits.com" src="https://analytics.niftydigits.com/js/plausible.js"></script>
   </head>
   <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -38,14 +42,14 @@
 
         <div id="navMenu" class="navbar-menu">
           <div class="navbar-end is-size-6">
-            <a class="navbar-item" href="/services">
+            <a class="navbar-item" href="/">
               Services
             </a>
-            <a class="navbar-item" href="/about">
+            <a class="navbar-item" href="/about.html">
               About
             </a>
             <div class="navbar-item">
-              <a class="button is-outlined is-transparent is-primary is-inverted is-outlined" href="/contact">
+              <a class="button is-outlined is-transparent is-primary is-inverted is-outlined" href="/contact.html">
                 Contact
               </a>
             </div>
@@ -54,33 +58,7 @@
       </div>
     </nav>
 
-    
-    
-
-    
-<section class="section is-large">
-  <div class="container">
-    <div class="columns">
-      <div class="column is-10-desktop is-offset-1-desktop">
-        <div class="content is-size-5">
-          <h1 class="title is-spaced">About</h1>
-          	<p>Hi, I’m Ian.</p>
-
-        		<p>Since 2012, I’ve worked on web applications for companies such as the Office for National Statistics, BBC and Aardman Features. I’ve written tools that collect surveys for the largest businesses on the web and ensure complex studio animation pipelines run smoothly.</p>
-
-        		<p>I believe that the best software is transparent to it’s users. I favour simple solutions, building upon existing open source libraries and automating workflows to deliver them.</p>
-
-        		<p>I hold a PhD in Computer Science from Cardiff University and have a background in developing software for animation pipelines. I’m pretty lucky to also have a number of <a href="https://www.imdb.com/name/nm5349775/">imdb credits</a>.</p>
-
-        		<p>If you're interested in hiring me, then please <a href="/contact">get in touch</a>.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
+    <slot />
 
     <section class="section newsletter">
       <div class="container">
@@ -112,7 +90,7 @@
       <div class="container">
          <div class="level is-size-7">
           <div class="level-left">
-            © 2012-2022 Nifty Digits Ltd
+            © 2012-2023 Nifty Digits Ltd
           </div>
           <div class="level-right">
             Registered in England and Wales, Company No: 7164674, VAT No: 948857846
@@ -120,6 +98,6 @@
         </div>
       </div>
     </footer>
-    <script src="lib/main.js"></script>
+    <script src="/lib/main.js" is:inline />
   </body>
 </html>
